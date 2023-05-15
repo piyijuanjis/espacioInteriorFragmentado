@@ -30,7 +30,7 @@
           <p class="servicios__features">Mesas</p>
         </div>
 
-        <a href="blog.php" class="servicios__cta">Ver nuestros trabajos</a>
+        <a href="blog.php" class="servicios__cta">Ver nuestra galería</a>
       </div>
 
       <div class="servicios__element servicios__element--best">
@@ -44,7 +44,7 @@
           <p class="servicios__features">Muebles</p>
         </div>
 
-        <a href="blog.php" class="servicios__cta">Ver nuestros trabajos</a>
+        <a href="blog.php" class="servicios__cta">Ver nuestra galería</a>
       </div>
 
       <div class="servicios__element">
@@ -57,7 +57,7 @@
           <p class="servicios__features">Sillas</p>
           <p class="servicios__features">Encimeras</p>
         </div>
-        <a href="blog.php" class="servicios__cta">Ver nuestros trabajos</a>
+        <a href="blog.php" class="servicios__cta">Ver nuestra galería</a>
 
       </div>
     </div>

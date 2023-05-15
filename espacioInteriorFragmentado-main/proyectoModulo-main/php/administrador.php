@@ -15,12 +15,14 @@
 
 <body>
 
+
     <?php
     session_start();
     if (!isset($_SESSION["introducir_email"])) {
         header("location:index.php");
     }
     ?>
+
 
     <header class="hero hero5">
         <nav class="nav container">
@@ -43,6 +45,9 @@
             <p class="hero__paragraph">Esta zona es exclusiva para administradores.</p>
         </section>
     </header>
+    <?php
+    include("guardar_blog.php");
+    ?>
 
     <main>
 
@@ -96,47 +101,103 @@
             </div>
         </section>
 
-        <section class="formulario">
-
-            <div class="container">
-                <h2 class="subtitle">Insertar imágenes en la galería</h2>
-                <form action="guardar_blog.php" class="form__imputs1" method="post" id="mi-formulario">
-
-                    <p>
-                        <label for="titulo" class="colocar_titulo">Título
-                            <span class="obligatorio">*</span>
-                        </label>
-                        <input type="text" name="introducir_titulo" id="titulo" required="obligatorio" class="form__imput" placeholder="Título">
-                    </p>
-
-                    <p>
-                        <label for="comentario" class="colocar_comentario">Mensaje
-                            <span class="obligatorio">*</span>
-                        </label>
-                        <textarea name="introducir_comentario" class="form__imput1" id="comentario" required="obligatorio" placeholder="Deja aquí tu comentario..."></textarea>
-                    </p>
-
-                    <p>
-                        <label for="foto_blog" class="colocar_foto_blog">Selecciona una imagen con tamaño inferior a 5mb
-                            <span class="obligatorio">*</span>
-                        </label>
-                        <input type="file" name="introducir_foto_blog" id="foto_blog" required="obligatorio" class="" placeholder="Título">
-                    </p>
-
-                    <button type="submit" name="enviar_formulario" class="form__submit" id="enviar">
-                        <p>Enviar</p>
-                    </button>
-
-                    <p class="aviso">
-                        <span class="obligatorio"> * </span>los campos son obligatorios.
-                    </p>
-
-
-                </form>
-
+        <section class="container about">
+            <h2 class="subtitle">Formularios de contacto</h2>
+            <div class="form-container2">
 
             </div>
+        </section>
 
+
+
+
+
+        <section class="formulario">
+            <div class="container">
+                <div class="container about">
+                    <h2 class="subtitle">Artículos de la galería</h2>
+                    <div class="form-container2">
+                        <table class="estilo_tabla">
+                            <tr>
+                                <th>Título</th>
+                                <th>Descripción</th>
+                                <th>Imagen</th>
+                                <th>Acciones</th>
+                            </tr>
+                            <?php
+                            include("conexion.php");
+
+                            // Consulta para obtener los artículos
+                            $query = "SELECT * FROM guardar_blog ORDER BY fecha DESC";
+                            $resultado = mysqli_query($conexion, $query);
+
+                            // Iteración sobre los resultados de la consulta
+                            while ($fila = mysqli_fetch_array($resultado)) {
+                                $id = $fila["id"];
+                                $titulo = $fila["titulo"];
+                                $descripcion = $fila["mensaje"];
+                                $imagen = $fila["imagen"];
+
+                                // Ruta de la imagen
+                                $rutaImagen = "../imagenes/img/" . basename($imagen);
+                            ?>
+                                <tr>
+                                    <td class="estilo_celda"><?php echo $titulo; ?></td>
+                                    <td class="estilo_celda"><?php echo $descripcion; ?></td>
+                                    <td class="estilo_celda"><img src="<?php echo $rutaImagen; ?>" class="imagen_tabla"></td>
+                                    <td class="estilo_celda"><a class="ctaEliminar" href="?eliminar=<?php echo $id; ?>">Eliminar</a></td>
+
+                                </tr>
+                            <?php
+                            }
+
+                            // Verificación de si se ha enviado el parámetro 'eliminar'
+                            if (isset($_GET['eliminar'])) {
+                                $idEliminar = $_GET['eliminar'];
+                                // Eliminar el artículo de la base de datos
+                                $eliminarQuery = "DELETE FROM guardar_blog WHERE id = $idEliminar";
+                                mysqli_query($conexion, $eliminarQuery);
+                            }
+
+                            // Cierre de la conexión a la base de datos
+                            mysqli_close($conexion);
+                            ?>
+                        </table>
+                    </div>
+                    <h2 class="subtitle">Insertar imágenes en la galería</h2>
+                    <form enctype="multipart/form-data" class="form__imputs1" method="post" id="mi-formulario">
+
+                        <p>
+                            <label for="titulo" class="colocar_titulo">Título
+                                <span class="obligatorio">*</span>
+                            </label>
+                            <input type="text" name="introducir_titulo" id="titulo" required="obligatorio" class="form__imput" placeholder="Título">
+                        </p>
+
+                        <p>
+                            <label for="comentario" class="colocar_comentario">Mensaje
+                                <span class="obligatorio">*</span>
+                            </label>
+                            <textarea name="introducir_comentario" class="form__imput1" id="comentario" required="obligatorio" placeholder="Deja aquí tu comentario..."></textarea>
+                        </p>
+
+                        <p>
+                            <label for="foto_blog" class="colocar_foto_blog">Selecciona una imagen con tamaño inferior a 5mb
+                                <span class="obligatorio">*</span>
+                            </label>
+                            <input type="file" name="introducir_foto_blog" id="foto_blog" required="obligatorio" class="" placeholder="Título">
+                        </p>
+
+                        <button type="submit" name="enviar_formulario" class="form__submit" id="enviar">
+                            <p>Enviar</p>
+                        </button>
+
+                        <p class="aviso">
+                            <span class="obligatorio"> * </span>los campos son obligatorios.
+                        </p>
+
+                    </form>
+                </div>
         </section>
 
         <section class="container about">

@@ -874,4 +874,17 @@ body {
     flex-direction: column;
 
 }
+
+.form-container2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.imagen_tabla {
+    width: 150px !important;
+    height: 100px !important;
+  }
+  
   

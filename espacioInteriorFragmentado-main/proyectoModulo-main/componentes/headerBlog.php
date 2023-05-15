@@ -83,7 +83,6 @@
                     <p>Acceder</p>
                 </button>
 
-                <p class="aviso">¿Aún no tienes cuenta? <a href="inicioSesion.html">Crea tu cuenta ya</a></p>
 
             </form>
         </div>

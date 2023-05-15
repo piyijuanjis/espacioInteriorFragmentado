@@ -13,7 +13,7 @@
 
         $base=new PDO("mysql:host=localhost; dbname=espacio_interior" , "root", "");
         $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql="SELECT * FROM USUARIO_PASS WHERE USUARIOS= :introducir_email AND PASSWORD= :introducir_contrasena";
+        $sql="SELECT * FROM USUARIO_PASS WHERE USUARIO= :introducir_email AND PASSWORD= :introducir_contrasena";
         $resultado=$base->prepare($sql);
         $login=htmlentities(addslashes($_POST["introducir_email"]));
         $password=htmlentities(addslashes($_POST["introducir_contrasena"]));

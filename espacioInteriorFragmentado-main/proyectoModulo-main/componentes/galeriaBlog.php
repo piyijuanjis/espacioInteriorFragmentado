@@ -31,7 +31,6 @@
                 <div class="servicios__items">
                     <img src="imagenes/cocina.jpg" class="servicios__foto">
                 </div>
-                <a href="#" class="servicios__cta">Ver artículo</a>
             </div>
 
             <div class="servicios__element">
@@ -41,7 +40,6 @@
                 <div class="servicios__items">
                     <img src="imagenes/salon.jpg" class="servicios__foto">
                 </div>
-                <a href="blog.html" class="servicios__cta">Ver artículo</a>
             </div>
 
             <div class="servicios__element">
@@ -51,7 +49,6 @@
                 <div class="servicios__items">
                     <img src="imagenes/salon1.jpg" class="servicios__foto">
                 </div>
-                <a href="blog.html" class="servicios__cta">Ver artículo</a>
             </div>
 
             <div class="servicios__element">
@@ -61,7 +58,6 @@
                 <div class="servicios__items">
                     <img src="imagenes/salon2.jpg" class="servicios__foto">
                 </div>
-                <a href="blog.html" class="servicios__cta">Ver artículo</a>
             </div>
 
             <div class="servicios__element">
@@ -71,7 +67,6 @@
                 <div class="servicios__items">
                     <img src="imagenes/salon3.jpg" class="servicios__foto">
                 </div>
-                <a href="blog.html" class="servicios__cta">Ver artículo</a>
             </div>
 
             <div class="servicios__element">
@@ -81,7 +76,6 @@
                 <div class="servicios__items">
                     <img src="imagenes/salon.jpg" class="servicios__foto">
                 </div>
-                <a href="blog.html" class="servicios__cta">Ver artículo</a>
             </div>
 
             <div class="servicios__element">
@@ -91,7 +85,6 @@
                 <div class="servicios__items">
                     <img src="imagenes/salon1.jpg" class="servicios__foto">
                 </div>
-                <a href="blog.html" class="servicios__cta">Ver artículo</a>
             </div>
 
             <?php
@@ -101,11 +94,9 @@
         </div>
     </section>
 
-    <script src="js/app.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/modal.js"></script>
     <script src="js/galeria.js"></script>
-    <script src="js/presupuesto.js"></script>
 
 </body>
 

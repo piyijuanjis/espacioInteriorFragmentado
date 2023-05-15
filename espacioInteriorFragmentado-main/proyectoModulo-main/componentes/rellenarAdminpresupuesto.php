@@ -20,7 +20,6 @@
                     <div class="servicios__items">
                         <img src="imagenesBlog/' . $imagen . '" class="servicios__foto">
                     </div>
-                    <a href="' . $url . '" class="servicios__cta">Ver artículo</a>
                   </div>';
         }
 
